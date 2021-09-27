@@ -23,12 +23,14 @@ RSpec.describe Oystercard do
     it 'should add money to the balance, and take in the amount as an argument' do
       expect(@my_oystercard_a.top_up(20)).to eq 30
     end
-  end
-
-  describe "#top_up" do
+  
     it 'should add money to the balance, and take in the amount as an argument' do
       expect(@my_oystercard_b.top_up(30)).to eq 50
-    end
-  end
+    end  
 
-end     
+    it 'should raise error when maximun balance of 90 reached' do
+      expect(@my_oystercard_b.top_up(71)).to eq "Maximum limit of 90 reached"
+    end
+  end   
+
+end
